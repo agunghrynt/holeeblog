@@ -1,0 +1,72 @@
+.form-login .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-login input[name="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-login input[name="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-login button[name="login-btn"] {
+    margin-top: 10px;
+}
+
+.form-registration .form-floating:focus-within {
+    z-index: 2;
+}
+
+.form-registration input[name="name"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.form-registration input[name="username"] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+.form-registration input[name="email"] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+.form-registration input[name="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.form-registration button[name="registration-btn"] {
+    margin-top: 10px;
+}
+
+/* Profile Picture */
+.profile-pic{
+    display: inline-block;
+    vertical-align: middle;
+    width: 40px;    
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+ }
+ 
+ .profile-pic img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+ }
+ .profile-menu .dropdown-menu {
+   right: 0;
+   left: unset;
+ }
+ .profile-menu .fa-fw {
+   margin-right: 10px;
+ }
+ 
+ .toggle-change::after {
+   border-top: 0;
+   border-bottom: 0.3em solid;
+ }

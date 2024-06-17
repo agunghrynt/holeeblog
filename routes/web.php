@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminCategoryController;
 use App\Models\Category;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\UserDashboardPostController;
 
 Route::get('/', function() {
@@ -56,7 +57,7 @@ Route::get('/user-dashboard', function() {
     ]);
 })->middleware('auth');
 
-Route::get('/user-dashboard/posts/checkSlug', [UserDashboardPostController::class, 'checkSlug'])->middleware('auth');
+Route::get('/user-dashboard/posts/checkSlug', [UserDashboardPostController::class, 'checkSlug'])->middleware(['auth', 'cors']);
 Route::resource('/user-dashboard/posts', UserDashboardPostController::class)->middleware('auth');
 
 Route::get('/user-dashboard/categories/checkSlug', [AdminCategoryController::class, 'checkSlug'])->middleware('auth');

@@ -11,21 +11,22 @@
         <form action="/user-dashboard/posts" method="POST" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
               <span for="title" class="form-label">Title</span>
               <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" value="{{ old('title') }}" required autofocus>
               @error('title')
                 <p class="invalid-feedback">{{ $message }}</p>
               @enderror
             </div>
-
+            
             <div class="mb-3">
               <span for="slug" class="form-label">Slug</span>
               <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" required>
               @error('slug')
                 <p class="invalid-feedback">{{ $message }}</p>
               @enderror
-            </div>
+            </div> --}}
+            <livewire:slug-generator/>
 
             <div class="mb-3">
               <span for="category_id" class="form-label">Category</span>

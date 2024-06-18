@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Livewire\Component;
 use App\Models\Category;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Livewire\SlugGenerator;
 use Illuminate\Support\Facades\Storage;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -29,7 +31,8 @@ class UserDashboardPostController extends Controller
     public function create()
     {
         return view('user-dashboard/posts/create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'data' => SlugGenerator::class,
         ]);
     }
 

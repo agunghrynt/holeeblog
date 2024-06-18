@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Category;
+use App\Livewire\SlugGenerator;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;

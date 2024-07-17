@@ -26,7 +26,7 @@ class LoginController extends Controller
         if(Auth::attempt($cret))
         {
             $request->session()->regenerate();
-            return redirect()->intended('/');
+            return redirect()->intended('/home');
         }
 
         // Error Message
@@ -45,6 +45,6 @@ class LoginController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/home');
     }
 }

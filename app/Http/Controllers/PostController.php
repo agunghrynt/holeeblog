@@ -5,17 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Category;
+use App\Models\Comment;
+use App\Models\PostViews;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
     public function index()
     {
-        // dd(request('search'));
-        // if(request('search')) {
-        //     $posts->where('title', 'like', '%' . request('search') . '%')
-        //           ->orWhere('body', 'like', '%' . request('search') . '%');
-        // }
         $title = '';
         if(request('category'))
         {
@@ -38,10 +35,21 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
+        $isAdmin = auth()->user()->isadmin;
+
+        PostViews::updateOrCreate([
+            'post_id' => $post->id,
+            'ip_address' => request()->ip(),
+        ]);
+
+        $post->loadCount(['views', 'comments']);
+        // $post->load('comments.author')->loadCount('comments');
+
         return view('post', [
             "title" => "Post",
             "active" => 'posts',
             "post" => $post,
+            "isAdmin" => $isAdmin
         ]);
     }
 }

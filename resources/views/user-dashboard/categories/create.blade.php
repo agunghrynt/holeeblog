@@ -11,21 +11,7 @@
         <form action="/user-dashboard/categories" method="POST">
             @csrf
 
-            <div class="mb-3">
-              <span for="name" class="form-label">Category Name</span>
-              <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{ old('name') }}" required autofocus>
-              @error('name')
-                <p class="invalid-feedback">{{ $message }}</p>
-              @enderror
-            </div>
-
-            <div class="mb-3">
-              <span for="slug" class="form-label">Slug</span>
-              <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" value="{{ old('slug') }}" required readonly>
-              @error('slug')
-                <p class="invalid-feedback">{{ $message }}</p>
-              @enderror
-            </div>
+            <livewire:slug-generator :makeData="$makeData"/>
 
             <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
               <button type="submit" class="btn btn-primary">Create Category</button>

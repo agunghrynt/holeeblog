@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Category;
 use App\Models\Post;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\User;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Comment;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -41,6 +42,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Post::factory(178)->create();
+
+        Comment::factory(70)->create();
 
         // Post::create([
         //     'title' => 'Judul Pertama',

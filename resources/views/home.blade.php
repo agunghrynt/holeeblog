@@ -3,7 +3,6 @@
 
 @section('container')
 
-<h1 class="mb-5">Halaman Home</h1>
+<h1>Stay Tune For New Feature</h1>
     
 @endsection
-

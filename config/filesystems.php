@@ -56,6 +56,15 @@ return [
             'throw' => false,
         ],
 
+        // upload new file directly to public path
+        'public_uploads' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/img',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
+    
+
     ],
 
     /*

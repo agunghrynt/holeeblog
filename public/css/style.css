@@ -70,3 +70,9 @@
    border-top: 0;
    border-bottom: 0.3em solid;
  }
+
+ /* $spacer = 1rem */
+.p.small.text-muted {
+    margin-left : .5rem;
+    margin-right : .5rem;
+}

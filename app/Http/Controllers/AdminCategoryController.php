@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Livewire\SlugGenerator;
 use Illuminate\Support\Facades\Gate;
 use Cviebrock\EloquentSluggable\Services\SlugService;
 
@@ -26,8 +27,11 @@ class AdminCategoryController extends Controller
     public function create()
     {
         Gate::authorize('mustadmin');
+        $makeData = 'cat';
         return view('/user-dashboard/categories/create', [
-            'categories' => Category::all()
+            'categories' => Category::all(),
+            'makeData' => $makeData,
+            'data' => SlugGenerator::class,
         ]);
     }
 
@@ -73,8 +77,8 @@ class AdminCategoryController extends Controller
     {
         Gate::authorize('mustadmin');
         $rules = [
-            // 'name' => ['required', 'max:55'],
-            // 'slug' => ['required', 'unique:categories']
+            'name' => ['required', 'max:55'],
+            'slug' => ['required', 'unique:categories']
         ];
 
         if($request->name != $category->name && $request->slug != $category->slug) {

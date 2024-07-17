@@ -14,22 +14,26 @@
             <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/posts*') ? 'active' : '' }}" href="/user-dashboard/posts">
               <i class="bi bi-file-earmark"></i> My Posts</a>
           </li>
+          <li class="nav-item align-items-center">
+            <a class="nav-link d-flex gap-2 {{ Request::is('comments*') ? 'active' : '' }}" href="{{ route('comments.index') }}">
+              <i class="bi bi-chat-right-dots"></i> My Comments</a>
+          </li>
         </ul>
-
+        
         @can('mustadmin')
-        <ul class="nav flex-column mt-3">
-          <div class="d-flex justify-content-center text-black-50 mb-3">
-            <h6 class="d-flex justify-content-center m-0">ADMINISTRATOR</h6>
-          </div>
-          <li class="nav-item align-items-center">
-            <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/categories*') ? 'active' : '' }}" href="/user-dashboard/categories">
-              <i class="bi bi-grid"></i> Manage Categories</a>
-          </li>
-          <li class="nav-item align-items-center">
-            <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/categories*') ? 'active' : '' }}" href="#">
-              <i class="bi bi-chat-square-dots"></i> Manage Comments</a>
-          </li>
-        </ul>
+          <ul class="nav flex-column mt-3">
+            <div class="d-flex justify-content-center text-black-50 mb-3">
+              <h6 class="d-flex justify-content-center m-0">ADMINISTRATOR</h6>
+            </div>
+            <li class="nav-item align-items-center">
+              <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/categories*') ? 'active' : '' }}" href="/user-dashboard/categories">
+                <i class="bi bi-grid"></i> Manage Categories</a>
+            </li>
+            <li class="nav-item align-items-center">
+              <a class="nav-link d-flex gap-2 {{ Request::is('manage*') ? 'active' : '' }}" href="{{ route('comments.manage') }}">
+                <i class="bi bi-chat-square-dots"></i> Manage Comments</a>
+            </li>
+          </ul>
         @endcan
 
         <ul class="nav flex-column mt-3">

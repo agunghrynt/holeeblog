@@ -18,8 +18,6 @@ class UserDashboardPostController extends Controller
      */
     public function index()
     {
-        // $post = Post::where('user_id', auth()->user()->id)->get();
-        // return $post;
         return view('user-dashboard.posts.index', [
             'posts' => Post::where('user_id', auth()->user()->id)->get()
         ]);
@@ -30,8 +28,11 @@ class UserDashboardPostController extends Controller
      */
     public function create()
     {
+        $makeData = 'post';
+        
         return view('user-dashboard/posts/create', [
             'categories' => Category::all(),
+            'makeData' => $makeData,
             'data' => SlugGenerator::class,
         ]);
     }
@@ -44,14 +45,15 @@ class UserDashboardPostController extends Controller
         $validatedData = $request->validate([
             'title' => ['required', 'max:255'],
             'slug' => ['required', 'unique:posts'],
-            'image' => ['image', 'file', 'max:2048'],
+            'image' => ['image', 'file', 'max:1024'],
             'category_id' => ['required'],
             'body' => ['required'],
         ]);
         
         if($request->file('image'))
         {
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('', ['disk' => 'public_uploads']);
+            // $validatedData['image'] = $request->file('image')->store('post-images');
         }
 
         $validatedData['user_id'] = auth()->user()->id;
@@ -108,10 +110,11 @@ class UserDashboardPostController extends Controller
         {
             if($request->oldImg)
             {
-                Storage::delete($request->oldImg);
+                Storage::disk('public_uploads')->delete($request->oldImg);
+                // Storage::delete($request->oldImg);
             }
 
-            $validatedData['image'] = $request->file('image')->store('post-images');
+            $validatedData['image'] = $request->file('image')->store('', ['disk' => 'public_uploads']);
         }
 
         $validatedData['user_id'] = auth()->user()->id;
@@ -129,7 +132,8 @@ class UserDashboardPostController extends Controller
     {
         if($post->image)
         {
-            Storage::delete($post->image);
+            Storage::disk('public_uploads')->delete($post->image);
+            // Storage::delete($post->image);
         }
 
         Post::destroy($post->id);

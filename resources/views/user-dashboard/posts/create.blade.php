@@ -26,7 +26,8 @@
                 <p class="invalid-feedback">{{ $message }}</p>
               @enderror
             </div> --}}
-            <livewire:slug-generator/>
+            <livewire:slug-generator :makeData="$makeData"/>
+            {{-- <livewire:slug-generator/> --}}
 
             <div class="mb-3">
               <span for="category_id" class="form-label">Category</span>

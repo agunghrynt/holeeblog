@@ -1,24 +1,24 @@
 // Auto generate slug
-function generateSlug(){
-  let headers = new Headers();
+// function generateSlug(){
+//   let headers = new Headers();
 
-  const title = document.querySelector('#title');
-  const slug = document.querySelector('#slug');
-}
-const title = document.querySelector('#title');
-const slug = document.querySelector('#slug');
-title.addEventListener('change', function(){
-    fetch('/user-dashboard/posts/checkSlug?title=' + title.value, {
-      method : 'OPTIONS',
-      headers : {
-        'Access-Control-Allow-Origin' : '*',
-        'Access-Control-Allow-Origin' : 'http://holee.lovestoblog.com',
-        'Access-Control-Allow-Origin' : 'http://holee.lovestoblog.com/user-dashboard/posts*',
-      },
-    })
-        .then(response => response.json())
-        .then(data => slug.value = data.slug)
-});
+//   const title = document.querySelector('#title');
+//   const slug = document.querySelector('#slug');
+// }
+// const title = document.querySelector('#title');
+// const slug = document.querySelector('#slug');
+// title.addEventListener('change', function(){
+//     fetch('/user-dashboard/posts/checkSlug?title=' + title.value, {
+//       method : 'OPTIONS',
+//       headers : {
+//         'Access-Control-Allow-Origin' : '*',
+//         'Access-Control-Allow-Origin' : 'http://holee.lovestoblog.com',
+//         'Access-Control-Allow-Origin' : 'http://holee.lovestoblog.com/user-dashboard/posts*',
+//       },
+//     })
+//         .then(response => response.json())
+//         .then(data => slug.value = data.slug)
+// });
 
 // Disable file upload for trix editor
 document.addEventListener('trix-file-accept', function(e){

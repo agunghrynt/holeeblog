@@ -1,11 +1,11 @@
 // Auto generate slug
-const catName = document.querySelector('#name');
-const slug = document.querySelector('#slug');
-catName.addEventListener('change', function(){
-    fetch('/user-dashboard/categories/checkSlug?name=' + catName.value)
-        .then(response => response.json())
-        .then(data => slug.value = data.slug) 
-});
+// const catName = document.querySelector('#name');
+// const slug = document.querySelector('#slug');
+// catName.addEventListener('change', function(){
+//     fetch('/user-dashboard/categories/checkSlug?name=' + catName.value)
+//         .then(response => response.json())
+//         .then(data => slug.value = data.slug) 
+// });
 
 // Disable file upload for trix editor
 document.addEventListener('trix-file-accept', function(e){

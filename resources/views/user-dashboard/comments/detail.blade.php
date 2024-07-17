@@ -5,13 +5,16 @@
 <div class="container">
   <div class="row my-3">
     <div class="col-lg-8">
-      <h2 class="mb-3">{{ $post->title }}</h2>
+      <h2 class="mb-3">{{ $comment->post->title }}</h2>
     
-      <a href="/user-dashboard/posts" class="text-decoration-none btn btn-primary btn-sm"><i class="bi bi-arrow-left"></i> Back to all posts</a>
-      <a class="btn btn-warning text-decoration-none btn-sm" href="/user-dashboard/posts/{{ $post->slug }}/edit" data-bs-toggle="tooltip" data-bs-title="Edit"><i class="bibi-pencil-square"></i> Edit</a>
-      {{-- <a class="btn btn-danger text-decoration-none btn-sm" href="" data-bs-toggle="tooltip" data-bs-title="Delete"><i class="bi bi-trash"></i> Delete</a> --}}
-      {{-- Trigger Modal --}}
-      <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash"></i> Delete</button>
+      <a href="{{ $isManage ? route('comments.manage') : route('comments.index') }}" class="text-decoration-none btn btn-primary btn-sm"><i class="bi bi-arrow-left"></i>{{ $isManage ? ' Back to All Comments' : ' Back to My Comments' }}</a>
+
+      @if (!$isManage)
+        <a class="btn btn-warning text-decoration-none btn-sm" href="{{ route('comments.edit', $comment->id) }}" data-bs-toggle="tooltip" data-bs-title="Edit"><i class="bibi-pencil-square"></i> Edit</a>  
+      @endif
+      
+      <button class="btn btn-danger btn-sm" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><i class="bi bi-trash"></i> Delete Comment</button>
+      <button class="btn btn-primary btn-sm"><i class="bi bi-eye"></i> {{ $post->views_count }}</button>
 
       <!-- Modal -->
       <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"aria-hidden="true">
@@ -26,7 +29,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-              <form action="/user-dashboard/posts/{{ $post->slug }}" method="POST" class="d-inline">
+              <form action="{{ $isAdmin ? route('comments.manage.destroy', $comment) : route('comments.destroy', $comment) }}" method="POST" class="d-inline">
                 @method('DELETE')
                 @csrf
                 
@@ -37,17 +40,20 @@
         </div>
       </div>
       
-      @if (empty($post->image))
+      @if (empty($comment->post->image))
         <div class="d-flex justify-content-center mt-3 img-fluid" style="max-height: 300px; max-width:100%; overflow: hidden;">
-          <img src="{{ URL::to('/') }}/img/post-1.jpg" class="object-fit-contain" alt="{{ $post->category->name }}">
+          <img src="{{ URL::to('/') }}/img/post-1.jpg" class="object-fit-contain" alt="{{ $comment->post->category->name }}">
         </div>
       @else
         <div class="d-flex justify-content-center mt-3 img-fluid" style="max-height: 300px; max-width:100%; overflow: hidden;">
-          <img src="{{ asset('img/' . $post->image) }}" class="object-fit-contain" alt="{{ $post->category->name }}">
+          <img src="{{ asset('storage/' . $comment->post->image) }}" class="object-fit-contain" alt="{{ $comment->post->category->name }}">
         </div>
       @endif
       
-      <p>{!! $post->body !!}</p>
+      <p>{!! $comment->post->body !!}</p>
+      <div>
+        @livewire('comment-manager', ['isAdmin' => $isAdmin, 'post' => $post])
+      </div>
     </div>
   </div>
 </div>

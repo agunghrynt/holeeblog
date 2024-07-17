@@ -1,0 +1,201 @@
+/* Gemini page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.parent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.header-parent {
+    position: sticky;
+    display: flex;
+    top: 0;
+    background-color: #f8f9fa;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.header-child {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.header-parent .header-child .gemini-logo {
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 50px;
+}
+
+.content {
+    flex: 1;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    /* padding: 5px; */
+    box-sizing: border-box;
+}
+
+.chat-container {
+    flex-basis: 0%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: block;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.chat-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.chat-message {
+    padding: 5px;
+    margin: 5px 0;
+    background-color: #e9ecef;
+    border-radius: 5px;
+}
+
+.footer {
+    position: relative;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 5px;
+    flex-shrink: 0;
+    z-index: 1000;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.running-container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    width: 700px;
+}
+
+.running-container div {
+    animation: marquee 13s linear infinite;
+    white-space: nowrap;
+
+}
+
+.running-container div span {
+    display: inline-flex;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+@keyframes marquee {
+    0%   { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* .chat-container {
+    flex: 1 1 auto;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+    flex-grow: 1;
+} */
+
+.input-group-container {
+    width: 100%;
+    margin: 0 auto;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.input-group-custom {
+    display: flex;
+    align-items: center;
+    background: #e4e4e4;
+    overflow: hidden;
+    border-radius: 25px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+    max-width: calc(100% - 40%);
+    margin: 0 auto; /* Center horizontally */
+}
+
+.input-group-custom input,
+.input-group-custom textarea {
+    border: none;
+    outline: none;
+    background: transparent;
+    resize: none;
+    overflow-y: hidden; /* Sesuaikan overflow untuk kebutuhan textarea */
+    height: fit-content;
+    max-height: 100px;
+    flex: 1;
+}
+.input-group-custom input::placeholder,
+.input-group-custom textarea::placeholder {
+    color: #5e5e5e;
+}
+.input-group-custom button {
+    border: none;
+    background: transparent;
+    color: #007bff;
+}
+.input-group-custom button:hover {
+    color: transparent;
+}
+.input-group-custom .file-input {
+    display: none;
+}
+.input-group-custom textarea:focus {
+    background-color: transparent;
+    outline: none; /* Remove default focus outline */
+    box-shadow: none; /* Remove box-shadow (ring) */
+}
+
+.form-control {
+    resize: none;
+    overflow: hidden; /* Sesuaikan overflow untuk kebutuhan textarea */
+    height: fit-content;
+    max-height: 25dvh;
+    flex: 1;
+}
+
+.h-full {
+    height: 100%;
+}

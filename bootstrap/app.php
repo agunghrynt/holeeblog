@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\Creator;
 use App\Http\Middleware\CorsSlug;
 use App\Http\Middleware\MustAdmin;
 use Illuminate\Foundation\Application;
@@ -15,7 +16,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'mustadmin' => MustAdmin::class,
-            'cors' => CorsSlug::class
+            'cors' => CorsSlug::class,
+            'creator' => Creator::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

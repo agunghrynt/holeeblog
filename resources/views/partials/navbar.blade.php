@@ -7,10 +7,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+          <a class="nav-link {{ Request::is('/home') ? 'active' : '' }}" aria-current="page" href="/home">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Request::is('blog') ? 'active' : '' }}" href="/blog">Blog</a>
+          <a class="nav-link {{ Request::is('posts') ? 'active' : '' }}" href="/posts">Blog</a>
         </li>
         <li class="nav-item">
           <a class="nav-link {{ Request::is('categories') ? 'active' : '' }}" href="/categories">Categories</a>
@@ -30,7 +30,7 @@
               <a class="nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Welcome, {{ auth()->user()->name }}
                 <div class="profile-pic">
-                  <img src="{{ URL::to('/') }}/img/agung.png" alt="Profile Pic">
+                  <img src="{{ URL::to('/') }}/img/person.svg" alt="Profile Pic">
                 </div>
               </a>
               <ul class="dropdown-menu">

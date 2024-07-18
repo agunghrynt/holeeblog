@@ -12,7 +12,7 @@
                         <small class="fw-light fst-italic">{{ $comment->is_edited ? '(edited)' : '' }}</small>
                     </div>
                     <div class="d-flex d-inline-flex gap-1 lh-1 align-items-center p-0">
-                      @if (Auth::check() && (Auth::user()->id === $comment->user_id) || (Auth::user()->isadmin) )
+                      @if (Auth::check() && (Auth::user()->id === $comment->user_id) || ($isAdmin) )
                       @can('creator', $comment)
                         <button wire:click="edit({{ $comment->id }})" class="btn btn-sm btn-link text-small text-decoration-none border-0 p-0"><i class="bi bi-pencil-square"></i></button>
                       @endcan

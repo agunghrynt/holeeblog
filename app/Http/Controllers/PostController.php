@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
-use App\Models\Category;
 use App\Models\Comment;
+use App\Models\Category;
 use App\Models\PostViews;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -35,7 +36,7 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-        $isAdmin = auth()->user()->isadmin;
+        $isAdmin = Auth::check() ? Auth::user()->isadmin : false;
 
         PostViews::updateOrCreate([
             'post_id' => $post->id,

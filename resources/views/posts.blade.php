@@ -32,11 +32,11 @@
     <div class="card mb-3">
         @if (empty($posts[0]->image))
           <div style="max-height: 400px; max-width:100%; overflow: hidden;">
-            <img src="{{ URL::to('/') }}/img/post-1.jpg" class="card-img-top object-fit-fill border rounded" alt="{{ $posts[0]->category->name }}">
+            <img src="{{ secure_asset('/img/post-1.jpg') }}" class="card-img-top object-fit-fill border rounded" alt="{{ $posts[0]->category->name }}">
           </div>
         @else
           <div style="max-height: 400px; max-width:100%; overflow: hidden;">
-            <img src="{{ asset('storage/' . $posts[0]->image) }}" class="card-img-top object-fit-fill border rounded" alt="{{ $posts[0]->category->name }}">
+            <img src="{{ secure_asset('storage/' . $posts[0]->image) }}" class="card-img-top object-fit-fill border rounded" alt="{{ $posts[0]->category->name }}">
           </div>
         @endif
         <div class="card-body text-center">
@@ -65,7 +65,7 @@
                         </div>
                     @else
                         <div style="max-height: 300px; max-width:100%; overflow: hidden;">
-                            <img src="{{ asset('storage/' . $post->image) }}" class="card-img-top object-fit-fill border rounded" alt="{{ $post->category->name }}">
+                            <img src="{{ secure_asset('storage/' . $post->image) }}" class="card-img-top object-fit-fill border rounded" alt="{{ $post->category->name }}">
                         </div>
                     @endif
                     {{-- <img src="../img/post-1.jpg" class="card-img-top object-fit-fill border rounded" style="height: 200px;" alt="{{ $post->category->name }}"> --}}
@@ -100,13 +100,13 @@
         <h2><a href="/posts/{{ $post->slug }}" class="text-decoration-none">{{ $post->title }}</a></h2>
 
         <p>By. <a href="/authors/{{ $post->author->username }}" class="text-decoration-none">{{ $post->author->name }}</a> in <a href="/categories/{{ $post->category->slug }}" class="text-decoration-none">{{ $post->category->name }}</a></p>
-        
+
         <p>{{ $post->excerpt }}</p>
 
         <a href="/posts/{{ $post->slug }}" class="text-decoration-none">Read More...</a>
 
     </article>
 @endforeach --}}
-    
+
 @endsection
 

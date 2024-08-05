@@ -29,7 +29,7 @@
                     </div>
                     @endif
                 @endforeach
-            </div>    
+            </div>
             <div class="row justify-content-center h-full overflow-hidden">
                 <div class="input-group-container col-12">
                     <div class="container d-flex justify-content-center">
@@ -138,5 +138,5 @@
 @endassets
 
 @push('scripts')
-<script src="{{ secure_asset('/js/gemini.js') }}"></script>
+<script src="/js/gemini.js"></script>
 @endpush

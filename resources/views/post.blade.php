@@ -21,14 +21,14 @@
           </p>
         </div>
       </div>
-      
+
       @if (empty($post->image))
         <div class="d-flex justify-content-center mt-3 img-fluid" style="max-height: 300px; max-width:100%; overflow: hidden;">
-          <img src="{{ URL::to('/') }}/img/post-1.jpg" class="object-fit-contain" alt="{{ $post->category->name }}">
+          <img src="{{ secure_asset('/img/post-1.jpg') }}" class="object-fit-contain" alt="{{ $post->category->name }}">
         </div>
       @else
         <div class="d-flex justify-content-center mt-3 img-fluid" style="max-height: 300px; max-width:100%; overflow: hidden;">
-          <img src="{{ asset('storage/' . $post->image) }}" class="object-fit-scale" alt="{{ $post->category->name }}">
+          <img src="{{ secure_asset('storage/' . $post->image) }}" class="object-fit-scale" alt="{{ $post->category->name }}">
         </div>
       @endif
       <p>{!! $post->body !!}</p>

@@ -11,13 +11,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {{-- My Style --}}
     {{-- <link rel="stylesheet" href="{{ URL::to('/') }}/css/style.css"> --}}
-    <link rel="preload" href="{{ URL::to('/') }}/css/style.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/css/style.css" as="style" onload="this.rel='stylesheet'">
 
     <title>Holee Sheet | {{ $title }}</title>
     @livewireStyles
   </head>
   <body>
-    
+
     @include('partials.navbar')
 
     <div class="container mt-3">

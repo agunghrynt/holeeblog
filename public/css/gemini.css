@@ -65,6 +65,7 @@ html, body {
 .chat-content {
     max-width: 800px;
     margin: 0 auto;
+    box-sizing: border-box;
     padding-bottom: 20px;
     padding-top: 20px;
 }
@@ -83,6 +84,7 @@ html, body {
     left: 0;
     width: 100%;
     background-color: #f8f9fa;
+    box-sizing: border-box;
     padding: 5px;
     flex-shrink: 0;
     z-index: 1000;

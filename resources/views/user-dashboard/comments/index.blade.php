@@ -51,7 +51,7 @@
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                      <form action="{{ $isAdmin ? route('comments.manage.destroy', $comment) : route('comments.destroy', $comment) }}" method="POST" class="d-inline">
+                      <form action="{{ $isAdmin ? secure_route('comments.manage.destroy', $comment) : secure_route('comments.destroy', $comment) }}" method="POST" class="d-inline">
                         @method('DELETE')
                         @csrf
 

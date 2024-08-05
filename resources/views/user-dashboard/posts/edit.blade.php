@@ -1,7 +1,7 @@
 @extends('user-dashboard.layouts.main')
 
 @section('container')
-    
+
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
       <h1 class="h3">Edit post</h1>
   </div>
@@ -51,7 +51,7 @@
         @if ($post->image)
           <div id="showImg" style="display: block">
             <div class="d-flex justify-content-center mt-3 img-fluid" style="max-height: 300px; max-width:auto;">
-              <img src="{{ asset('storage/' . $post->image) }}" alt="Preview Uploaded image" id="file-preview" class="object-fit-contain">
+              <img src="{{ secure_asset('storage/' . $post->image) }}" alt="Preview Uploaded image" id="file-preview" class="object-fit-contain">
             </div>
           </div>
         @else
@@ -80,10 +80,10 @@
       </div>
 
     </form>
-      
+
   </div>
 
-  
+
   <script src="{{ URL::to('/') }}/js/mypostutils.js">
     // // Auto generate slug
     // const title = document.querySelector('#title');

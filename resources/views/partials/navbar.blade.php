@@ -22,7 +22,7 @@
           <a class="nav-link {{ Request::is('project') ? 'active' : '' }}" href="/project">Project</a>
         </li>
       </ul>
-      
+
       <ul class="navbar-nav ms-auto profile-menu">
         @auth
           <ul class="navbar-nav ms-auto profile-menu">
@@ -30,7 +30,7 @@
               <a class="nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Welcome, {{ auth()->user()->name }}
                 <div class="profile-pic">
-                  <img src="{{ URL::to('/') }}/img/person.svg" alt="Profile Pic">
+                  <img src="{/img/person.svg" alt="Profile Pic">
                 </div>
               </a>
               <ul class="dropdown-menu">
@@ -51,7 +51,7 @@
           </li>
         @endauth
       </ul>
-      
+
     </div>
   </div>
 </nav>

@@ -1,7 +1,7 @@
 @extends('user-dashboard.layouts.main')
 
 @section('container')
-    
+
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-2 border-bottom">
       <h1 class="h3">Edit Category</h1>
   </div>
@@ -32,11 +32,11 @@
       </div>
 
     </form>
-      
+
   </div>
 
-  
-  <script src="{{ URL::to('/') }}/js/mycategoryutils.js">
+
+  <script src="/js/mycategoryutils.js">
   </script>
 
 @endsection

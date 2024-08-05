@@ -45,34 +45,67 @@
 
 /* Profile Picture */
 .profile-pic{
-    display: inline-block;
-    vertical-align: middle;
-    width: 40px;    
-    height: 40px;
-    overflow: hidden;
-    border-radius: 50%;
- }
- 
- .profile-pic img{
-    width: 100%;
-    height: auto;
-    object-fit: cover;
- }
- .profile-menu .dropdown-menu {
-   right: 0;
-   left: unset;
- }
- .profile-menu .fa-fw {
-   margin-right: 10px;
- }
- 
- .toggle-change::after {
-   border-top: 0;
-   border-bottom: 0.3em solid;
- }
+   display: inline-block;
+   vertical-align: middle;
+   width: 40px;    
+   height: 40px;
+   overflow: hidden;
+   border-radius: 50%;
+}
 
- /* $spacer = 1rem */
+.profile-pic img{
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+}
+
+.profile-menu .dropdown-menu {
+  right: 0;
+  left: unset;
+}
+.profile-menu .fa-fw {
+  margin-right: 10px;
+}
+
+.toggle-change::after {
+  border-top: 0;
+  border-bottom: 0.3em solid;
+}
+
+/* $spacer = 1rem */
 .p.small.text-muted {
     margin-left : .5rem;
     margin-right : .5rem;
 }
+
+.profile-pic-dashboard{
+    display: inline-block;
+    vertical-align: middle;
+    width: 75px;    
+    height: 75px;
+    overflow: hidden;
+    border-radius: 50%;
+ }
+
+ .profile-pic-dashboard img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+ }
+
+ .chev {
+    height: 16px;
+ }
+
+.kanan.col input {
+    border: none;
+    /* outline: none; */
+    background: transparent;
+    resize: none;
+    /* padding: 0;
+    line-height: 1; */
+}
+
+/* .kanan.col input.form-control:focus {
+    box-shadow: none;
+} */

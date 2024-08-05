@@ -20,8 +20,8 @@
       }
     </style>
 
-
-    
+    {{-- Jcrop --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.css" />
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
 
@@ -111,6 +111,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="{{ URL::to('/') }}/css/dashboard.css" rel="stylesheet">
+    <link href="{{ URL::to('/') }}/css/style.css" rel="stylesheet">
     @livewireStyles
   </head>
   <body>
@@ -204,7 +205,9 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
     <script src="{{ URL::to('/') }}/js/dashboard.js"></script>
     @livewireScripts
+    @stack('scripts')
   </body>
 </html>

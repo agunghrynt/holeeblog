@@ -60,13 +60,12 @@
     <div class="header-parent">
         <div class="header-child">
             <a href="{{ URL::to('/') }}/home">
-                <img class="gemini-logo" src="{{ URL::to('/') }}/img/gemini.svg" alt="Gemini Logo">
+                <img class="gemini-logo" src="{{ secure_asset('/img/gemini.svg') }}" alt="Gemini Logo">
             </a>
             <p class="text-center font-monospace text-muted lh-1 m-1 fw-semibold">Gemini AI</p>
         </div>
     </div>
     <div class="content">
-        {{-- @dump($history) --}}
         <div class="chat-container">
             <div class="chat-content">
                 @foreach($history as $chat)
@@ -135,69 +134,9 @@
 </div>
 
 @assets
-<link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/gemini.css">
+<link rel="stylesheet" type="text/css" href="/css/gemini.css">
 @endassets
 
 @push('scripts')
-<script src="{{ asset('js/gemini.js') }}"></script>
-{{-- <script>
-    document.addEventListener('livewire:initialized', function () {
-        $wire.$on('messageReceived', (response) => {
-            let index = response[0].index; // Mengambil index dari response
-            let text = response[0].text; // Mengambil teks dari response
-            // Scroll ke bawah setelah pesan baru dari user ditambahkan
-            let typingElementId = `typingEffectGemini${index}`;
-            setTimeout(() => {
-                    let typingElement = document.getElementById(typingElementId);
-                    if (typingElement) {
-                        typingElement.textContent = ' '; // Mengosongkan konten sebelum mengetik ulang
-                        typeWriter(text, typingElement);
-                    } else {
-                    }
-                }, 0);
-        });
-
-        $wire.$on('processUserInput', (userinput) => {
-        let chatContainer = document.querySelector('.chat-container');
-        setTimeout(() => {
-                if (chatContainer) {
-                    // Scroll ke bawah setelah pesan baru dari user ditambahkan
-                    chatContainer.scrollTop = chatContainer.scrollHeight;
-                }
-            }, 0);  
-        });
-
-        function typeWriter(text, element) {
-            let i = 0;
-            let speed = 2; // Kecepatan ketik (ms per karakter)
-            function type() {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(type, speed);
-
-                    // Scroll chat container ke bawah saat typewriter berjalan
-                    let chatContainer = document.querySelector('.chat-container');
-                    if (chatContainer) {
-                        chatContainer.scrollTop = chatContainer.scrollHeight;
-                    }
-                }
-            }
-            type(); // Mulai efek ketik
-        }
-    });
-    
-
-    // Scroll otomatis ke bawah ketika pesan baru diproses
-    document.addEventListener('livewire:initialized', function () {
-        $wire.$on('messageReceived', function () {
-            setTimeout(() => {
-                let chatContainer = document.querySelector('.chat-container');
-                if (chatContainer) {
-                    chatContainer.scrollTop = chatContainer.scrollHeight;
-                }
-            }, 0);
-        });
-    });
-</script> --}}
+<script src="{{ secure_asset('/js/gemini.js') }}"></script>
 @endpush

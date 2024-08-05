@@ -63,7 +63,15 @@ return [
             'visibility' => 'public',
             'throw' => false,
         ],
-    
+        
+        // upload new file directly to public path
+        'users_profile' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+            'url' => env('APP_URL').'/storage',
+            'visibility' => 'public',
+            'throw' => false,
+        ],
 
     ],
 

@@ -48,8 +48,9 @@ html, body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    /* padding: 5px; */
+    max-height: calc(100vh - 10%);
     box-sizing: border-box;
+    padding-bottom: 5px;
 }
 
 .chat-container {

@@ -3,16 +3,25 @@
 use App\Models\Category;
 use App\Livewire\AddComment;
 use App\Livewire\SlugGenerator;
+use App\Livewire\AccountSettings;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\GeminiController;
-use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\StorageController;
+use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\UserSettingsController;
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\UserDashboardPostController;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
+
+Route::get('storage/{filename}', [StorageController::class, 'getFile'])->name('storage.file');
 
 Route::get('/', [GeminiController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -67,8 +76,8 @@ Route::view('/user-dashboard', 'user-dashboard.index', [
 ])->middleware('auth');
 Route::resource('/user-dashboard/posts', UserDashboardPostController::class)->middleware('auth');
 
-Route::resource('/user-dashboard/comments', CommentController::class)->except(['index', 'create', 'store']);
-Route::get('/user-dashboard/comments', [CommentController::class, 'index'])->name('comments.index');
+// Route::resource('/user-dashboard/comments', CommentController::class)->except(['index', 'create', 'store'])->middleware('auth');
+// Route::get('/user-dashboard/comments', [CommentController::class, 'index'])->name('comments.index')->middleware('auth');
 Route::middleware('creator')->group(function () {
     Route::get('/user-dashboard/comments/{comment}', [CommentController::class, 'show'])->name('comments.show');
     Route::get('/user-dashboard/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit');
@@ -81,6 +90,9 @@ Route::resource('/user-dashboard/categories', AdminCategoryController::class)->e
 
 Route::middleware(['auth'])->group(function () {
     // Route::get('/posts/{post}', PostController::class . '@show');
+    Route::resource('/user-dashboard/comments', CommentController::class)->except(['index', 'create', 'store', 'update']);
+    Route::get('/user-dashboard/comments', [CommentController::class, 'index'])->name('comments.index');
+    Route::get('/user-dashboard/settings', [UserSettingsController::class, 'index'])->name('settings.index');
     Route::post('/posts/{post}/comment', AddComment::class)->name('comment.add');
 });
 

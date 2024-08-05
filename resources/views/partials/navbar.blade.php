@@ -36,7 +36,7 @@
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item {{ Request::is('user-dashboard') ? 'active' : '' }}" href="/user-dashboard"><i class="bi bi-pc-display"></i> My Dashboard</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> My Profile</a></li>
+                <li><a class="dropdown-item" href="{{ route('settings.index') }}"><i class="bi bi-person"></i> My Profile</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li>
                   <!-- Trigger Modal -->

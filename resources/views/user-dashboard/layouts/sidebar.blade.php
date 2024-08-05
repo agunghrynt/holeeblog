@@ -15,7 +15,7 @@
               <i class="bi bi-file-earmark"></i> My Posts</a>
           </li>
           <li class="nav-item align-items-center">
-            <a class="nav-link d-flex gap-2 {{ Request::is('comments*') ? 'active' : '' }}" href="{{ route('comments.index') }}">
+            <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/comments*') ? 'active' : '' }}" href="{{ route('comments.index') }}">
               <i class="bi bi-chat-right-dots"></i> My Comments</a>
           </li>
         </ul>
@@ -30,7 +30,7 @@
                 <i class="bi bi-grid"></i> Manage Categories</a>
             </li>
             <li class="nav-item align-items-center">
-              <a class="nav-link d-flex gap-2 {{ Request::is('manage*') ? 'active' : '' }}" href="{{ route('comments.manage') }}">
+              <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/manage-comments*') ? 'active' : '' }}" href="{{ route('comments.manage') }}">
                 <i class="bi bi-chat-square-dots"></i> Manage Comments</a>
             </li>
           </ul>
@@ -41,7 +41,7 @@
             <h6 class="d-flex justify-content-center m-0">ACCOUNT SETTINGS</h6>
           </div>
           <li class="nav-item align-items-center">
-            <a class="nav-link d-flex gap-2" href="#">
+            <a class="nav-link d-flex gap-2 {{ Request::is('user-dashboard/user-settings*') ? 'active' : '' }}" href="{{ route('settings.index') }}">
               <i class="bi bi-gear"></i> My Profile</a>
           </li>
           <li class="nav-item align-items-center">

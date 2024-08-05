@@ -61,7 +61,7 @@
                     <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.1)"><a href="/posts?category={{ $post->category->slug }}"     class="text-decoration-none  text-white">{{ $post->category->name }}</a></div>
                     @if (empty($post->image))
                         <div style="max-height: 300px; max-width:100%; overflow: hidden;">
-                            <img src="{{ URL::to('/') }}/img/post-1.jpg" class="card-img-top object-fit-fill border rounded" alt="{{ $post->category->name }}">
+                            <img src="{{ secure_asset('/img/post-1.jpg') }}" class="card-img-top object-fit-fill border rounded" alt="{{ $post->category->name }}">
                         </div>
                     @else
                         <div style="max-height: 300px; max-width:100%; overflow: hidden;">

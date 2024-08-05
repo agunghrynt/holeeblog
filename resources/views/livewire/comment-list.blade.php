@@ -2,7 +2,7 @@
     @foreach($post->comments as $comment)
         <div class="d-flex flex-row mb-3">
             <div class="p-2">
-                <img class="profile-pic float-start me-2" src="{{ URL::to('/') }}/img/person.svg" alt="Profile Pic">
+                <img class="profile-pic float-start me-2" src="/img/person.svg" alt="Profile Pic">
             </div>
             <div class="card card-body d-flex d-inline-flex p-2">
                 <div class="mb-1 d-flex d-inline-flex align-items-center justify-content-between">
@@ -39,7 +39,7 @@
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <form wire:submit="delete({{ $comment->id }})" class="d-inline">
                   @csrf
-                  
+
                   <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Yes</button>
                 </form>
               </div>

@@ -32,7 +32,7 @@
                                     </label>
                                 @else
                                     <label for="profile-pic-upload" class="profile-pic-dashboard">
-                                        <img src="{{ URL::to('/') }}/img/person.svg" alt="Default Profile Photo" class="profile-pic-dashboard">
+                                        <img src="/img/person.svg" alt="Default Profile Photo" class="profile-pic-dashboard">
                                     </label>
                                 @endif
 
@@ -74,7 +74,7 @@
                             @enderror
                         </div>
                     </div>
-    
+
                     <div class="d-flex flex-row gap-5 align-items-center lh-1 border-bottom border-muted py-2">
                         <div class="kiri m-0 p-0 col-3">
                             <span class="m-0 p-0">Username</span>
@@ -88,12 +88,12 @@
                             @enderror
                         </div>
                     </div>
-    
+
                     <div class="d-flex flex-row mt-4">
                         <button wire:click="saveBasicSettings" class="btn btn-primary">Save Basic Info</button>
                     </div>
                 </form>
-                {{-- 
+                {{--
                 <div class="d-flex flex-row gap-5 align-items-center lh-1 border-bottom border-muted py-2">
                     <div class="kiri m-0 p-0 col-3">
                         <p class="m-0 p-0">
@@ -110,7 +110,7 @@
                 </div>
                  --}}
             </div>
-            
+
             <div class="rounded-5 border-muted p-3">
                     <h2>Advanced Settings</h2>
                     @if (session()->has('messageAdvanced'))
@@ -134,7 +134,7 @@
                                 @enderror
                             </div>
                         </div>
-        
+
                         <div class="d-flex flex-row gap-5 align-items-center lh-1 border-bottom border-muted py-2">
                             <div class="kiri m-0 p-0 col-3">
                                 <span class="m-0 p-0">Password</span>
@@ -148,7 +148,7 @@
                                 @enderror
                             </div>
                         </div>
-        
+
                         <div class="d-flex flex-row gap-5 align-items-center lh-1 border-bottom border-muted py-2">
                             <div class="kiri m-0 p-0 col-3">
                                 <span class="m-0 p-0">Confirm Password</span>
@@ -162,7 +162,7 @@
                                 @enderror
                             </div>
                         </div>
-        
+
                         <div class="d-flex flex-row mt-4">
                             <button wire:click="saveAdvancedSettings" class="btn btn-primary">Save Changes</button>
                         </div>
@@ -193,5 +193,5 @@
 </div>
 
 @push('scripts')
-<script src="{{ asset('js/usersetting.js') }}"></script>
+<script src="js/usersetting.js"></script>
 @endpush

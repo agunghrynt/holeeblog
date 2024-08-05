@@ -49,8 +49,8 @@ html, body {
     overflow-y: auto;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    max-height: calc(100vh - 50px);
+    /* min-height: 100vh; */
+    max-height: calc(100vh - 20%);
     box-sizing: border-box;
     padding-bottom: 5px;
 }

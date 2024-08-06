@@ -15,7 +15,11 @@ class MustAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(auth()->guest() || !auth()->user()->isadmin) 
+        if (!$request->secure() && env('APP_ENV') !== 'local') {
+            return redirect()->secure($request->getRequestUri());
+        }
+
+        if(auth()->guest() || !auth()->user()->isadmin)
         {
             abort(403);
         }

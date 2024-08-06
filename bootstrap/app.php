@@ -16,7 +16,6 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'mustadmin' => MustAdmin::class,
-            'cors' => CorsSlug::class,
             'creator' => Creator::class,
         ]);
     })

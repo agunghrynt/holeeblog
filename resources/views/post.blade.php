@@ -8,7 +8,6 @@
     <div class="col-md-8">
     {{-- @dd($post) --}}
       <h2 class="mb-5">{{ $post->title }}</h2>
-      <p>Client IP Address: {{ $clientIp }}</p>
 
       <div class="d-flex align-items-center justify-content-between mb-2 lh-1">
         <div class="d-flex justify-content-start">

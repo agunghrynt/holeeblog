@@ -52,7 +52,6 @@ class PostController extends Controller
             "active" => 'posts',
             "post" => $post,
             "isAdmin" => $isAdmin,
-            "clientIp" => $clientIp,
         ]);
     }
 }

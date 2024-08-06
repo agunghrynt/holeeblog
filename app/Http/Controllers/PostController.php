@@ -38,9 +38,10 @@ class PostController extends Controller
     {
         $isAdmin = Auth::check() ? Auth::user()->isadmin : false;
 
+        $clientIp = request()->ip();
         PostViews::updateOrCreate([
             'post_id' => $post->id,
-            'ip_address' => request()->ip(),
+            'ip_address' => $clientIp,
         ]);
 
         $post->loadCount(['views', 'comments']);
@@ -50,7 +51,8 @@ class PostController extends Controller
             "title" => "Post",
             "active" => 'posts',
             "post" => $post,
-            "isAdmin" => $isAdmin
+            "isAdmin" => $isAdmin,
+            "clientIp" => $clientIp,
         ]);
     }
 }

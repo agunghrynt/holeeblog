@@ -30,7 +30,11 @@
               <a class="nav-link dropdown-toggle p-0" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Welcome, {{ auth()->user()->name }}
                 <div class="profile-pic">
-                  <img src="{/img/person.svg" alt="Profile Pic">
+                    @if (empty(auth()->user()->photo))
+                        <img src="/img/person.svg" alt="Profile Pic">
+                    @else
+                        <img src={{ secure_asset('storage/'.auth()->user()->photo) }} alt="Profile Pic">
+                    @endif
                 </div>
               </a>
               <ul class="dropdown-menu">

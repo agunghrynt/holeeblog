@@ -28,7 +28,7 @@
                                     </label>
                                 @elseif ($user->photo)
                                     <label for="profile-pic-upload" class="profile-pic-dashboard">
-                                        <img src="{{ route('storage.file', ['filename' => $user->photo]) }}" alt="Profile Photo" class="profile-pic-dashboard">
+                                        <img src="{{ secure_asset('storage/'.$user->photo) }}" alt="Profile Photo" class="profile-pic-dashboard">
                                     </label>
                                 @else
                                     <label for="profile-pic-upload" class="profile-pic-dashboard">
@@ -193,5 +193,5 @@
 </div>
 
 @push('scripts')
-<script src="js/usersetting.js"></script>
+<script src="/js/usersetting.js"></script>
 @endpush
